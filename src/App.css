@@ -1,55 +1,55 @@
-/* LandingPage.css */
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
-  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.app-container {
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .landing-page {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #f8f8f8;
 }
 
 .background-image {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background-image: url('https://cdn.pixabay.com/photo/2017/07/13/08/59/greenhouse-2499758_1280.jpg');
-  background-size: 100% 100%;
+  background-size: cover;
   background-position: center;
-  filter: brightness(0.8);
+  filter: brightness(0.65);
 }
+
 .content {
-  display: flex;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(260px, 34%) minmax(320px, 1fr);
   align-items: center;
-  justify-content: center;
-  height: 100vh;
-  width: 100vw;
- top: 100px;
+  min-height: 100vh;
+  width: 100%;
+  padding: 64px 7vw;
+  background-color: rgba(0, 0, 0, 0.48);
   backdrop-filter: blur(4px);
-  background-color: rgba(0,0,0,0.5);
-  gap: 20px;
+  gap: 48px;
 }
 
 .landing_content {
- margin-top: 430px;
-  margin-left: 100px;
-  transform: translate(-50%, -50%);
   z-index: 1;
   text-align: center;
-  /* background-color: red; */
-  width: 400px;
-  height: 400px;
+  color: white;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
+  gap: 14px;
 }
 
 .content p,
@@ -58,12 +58,15 @@
 }
 
 .content h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 44px;
+  line-height: 1.2;
+  margin: 0;
 }
 
 .content p {
-  font-size: 25px;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .divider {
@@ -73,75 +76,57 @@
   margin: 10px 0;
 }
 
-.get-started-button {
-  padding: 15px 25px;
-  font-size: 23px;
+.get-started-button,
+.get-started-button1 {
+  padding: 14px 26px;
+  min-width: 170px;
+  font-size: 20px;
   border: none;
   border-radius: 5px;
   background-color: #4caf50;
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-top: 40px;
 }
 
-.get-started-button:hover {
+.get-started-button:hover,
+.get-started-button1:hover {
   background-color: #45a049;
 }
 
-/* ProductList.css */
+.get-started-button {
+  margin-top: 28px;
+}
+
+.aboutus_container {
+  z-index: 1;
+}
 
 .product-list-container {
-  position: absolute;
+  position: fixed;
   overflow-x: hidden;
   top: 100vh;
-  /* Initially off-screen */
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(255, 255, 255, 0.9);
-  /* Adjust background opacity as needed */
+  background-color: rgba(255, 255, 255, 0.92);
   transition: top 0.5s ease;
-  /* Smooth transition for top property */
   overflow-y: auto;
-  /* Enable vertical scrolling */
   z-index: 2;
-  /* Ensure it's above landing page content */
   backdrop-filter: blur(5px);
 }
 
 .product-list-container.visible {
   top: 0;
 }
-/* LandingPage.css */
-@media screen and (max-width: 768px) {
+
+@media screen and (max-width: 900px) {
   .content {
-    flex-direction: column;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
+    grid-template-columns: 1fr;
+    padding: 40px 24px;
   }
 
-  .landing_content {
-    margin-top: 100px; /* Adjust as needed */
-    margin-left: 0;
-    width: 80%; /* Adjust as needed */
-    text-align: center;
-  }
-
-  .aboutus_container {
-    margin-top: 20px; /* Adjust as needed */
-    width: 80%; /* Adjust as needed */
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .landing_content {
-    margin-top: 50px; /* Adjust as needed */
-    width: 90%; /* Adjust as needed */
-  }
-
-  .aboutus_container {
-    width: 90%; /* Adjust as needed */
+  .content h1 {
+    font-size: 36px;
   }
 }
