@@ -7,7 +7,6 @@ import { addItem } from './CartSlice';
 function ProductList({ onHomeClick }) {
     const [showCart, setShowCart] = useState(false);
     const [showPlants, setShowPlants] = useState(true);
-    const [addedToCart, setAddedToCart] = useState({});
     const dispatch = useDispatch();
     const cart = useSelector(state => state.cart.items);
 
@@ -242,10 +241,6 @@ function ProductList({ onHomeClick }) {
 
     const handleAddToCart = (plant) => {
         dispatch(addItem(plant));
-        setAddedToCart((prevState) => ({
-            ...prevState,
-            [plant.name]: true,
-        }));
     };
 
     return (
@@ -284,7 +279,7 @@ function ProductList({ onHomeClick }) {
                             </div>
                             <div className="product-list">
                                 {category.plants.map(plant => {
-                                    const added = addedToCart[plant.name];
+                                    const added = cart.some(item => item.name === plant.name);
 
                                     return (
                                         <div className="product-card" key={`${category.category}-${plant.name}`}>
